@@ -1,0 +1,1623 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>一周三补营养食谱（1岁+）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#f6f8fc;
+      --bg-accent:radial-gradient(circle at top, rgba(125, 211, 252, 0.3), transparent 38%), linear-gradient(180deg, #f7fbff 0%, #eef5ff 42%, #f8fbf8 100%);
+      --text:#23324a;
+      --muted:#607086;
+      --border:rgba(148, 163, 184, 0.26);
+      --panel:rgba(255, 255, 255, 0.88);
+      --header:linear-gradient(135deg, rgba(226, 238, 255, 0.96) 0%, rgba(248, 241, 255, 0.94) 100%);
+      --mid:linear-gradient(135deg, rgba(235, 250, 241, 0.96) 0%, rgba(245, 252, 248, 0.98) 100%);
+      --bottom:linear-gradient(135deg, #fefce8 0%, #fff7ed 100%);
+      --primary:#2563eb;
+      --primary-soft:#dbeafe;
+      --danger:#ef4444;
+      --shadow:0 18px 40px rgba(15, 23, 42, 0.08);
+      --shadow-sm:0 10px 24px rgba(15, 23, 42, 0.06);
+      --radius:22px;
+      --radius-sm:16px;
+      --radius-xs:12px;
+      /* 食材库 · 蓝色系 */
+      --catalog-surface:linear-gradient(165deg, #f0f9ff 0%, #e0f2fe 38%, #eff6ff 100%);
+      --catalog-border:rgba(59, 130, 246, 0.22);
+      --catalog-shadow:0 4px 28px rgba(37, 99, 235, 0.07);
+    }
+    *{box-sizing:border-box}
+    html{
+      overflow-x:hidden;
+      scrollbar-gutter:stable;
+      -webkit-text-size-adjust:100%;
+    }
+    body{
+      margin:0;
+      min-height:100vh;
+      background:var(--bg-accent);
+      color:var(--text);
+      font-family:"Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", system-ui, sans-serif;
+      font-weight:400;
+      font-size:15px;
+      line-height:1.55;
+      letter-spacing:0.02em;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+      text-rendering:optimizeLegibility;
+    }
+    .phone{
+      max-width:430px;
+      margin:0 auto;
+      padding:20px 16px calc(32px + env(safe-area-inset-bottom));
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      width:100%;
+    }
+    .panel{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px;
+      margin-bottom:0;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      overflow:hidden;
+      contain:layout paint;
+    }
+    .panel.header{
+      background:var(--header);
+      border-color:rgba(147, 197, 253, 0.35);
+    }
+    .panel.edit{
+      background:var(--mid);
+      border-color:rgba(134, 239, 172, 0.35);
+    }
+    .panel.catalog{
+      background:linear-gradient(180deg, rgba(243,250,255,0.95) 0%, rgba(247,252,250,0.98) 100%);
+      border-color:rgba(148, 203, 255, 0.38);
+      box-shadow:0 18px 34px rgba(56, 189, 248, 0.12);
+    }
+    .panel.catalog .section-title{
+      color:#3f5870;
+      font-weight:500;
+      letter-spacing:0.08em;
+    }
+    .view-toolbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:12px;
+    }
+    .view-toolbar .section-title{
+      margin-bottom:0;
+    }
+    .back-btn{
+      border:1px solid rgba(148, 163, 184, 0.28);
+      background:rgba(255,255,255,0.86);
+      color:#1d4ed8;
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:12px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:var(--shadow-sm);
+    }
+    .title{
+      text-align:center;
+      font-weight:600;
+      font-size:1.18rem;
+      letter-spacing:0.08em;
+      margin-bottom:6px;
+      color:#172033;
+    }
+    .tabs{display:flex;gap:10px;margin-top:14px}
+    .tab{
+      flex:1;
+      border:1px solid rgba(148, 163, 184, 0.3);
+      background:rgba(255,255,255,.76);
+      border-radius:999px;
+      padding:10px 8px;
+      text-align:center;
+      font-weight:500;
+      cursor:pointer;
+      font-size:13px;
+      letter-spacing:0.04em;
+      color:var(--muted);
+      transition:background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+    .tab:hover{background:rgba(255,255,255,.95);box-shadow:var(--shadow-sm);transform:translateY(-1px)}
+    .tab.active{
+      background:linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+      border-color:#93c5fd;
+      color:#2563eb;
+      box-shadow:var(--shadow-sm);
+    }
+    .section-title{
+      font-size:13px;
+      font-weight:500;
+      color:var(--muted);
+      margin-bottom:12px;
+      letter-spacing:0.04em;
+    }
+    .list{display:flex;flex-direction:column;gap:10px;min-height:96px}
+    .row{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.85);
+      border-radius:var(--radius-sm);
+      padding:12px 14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      cursor:pointer;
+      transition:box-shadow .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .row:hover{box-shadow:var(--shadow-sm);transform:translateY(-1px)}
+    .row.active{border-color:#93c5fd;background:linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(239,246,255,0.95) 100%);box-shadow:var(--shadow-sm)}
+    .row .left{font-weight:500;font-size:14px}
+    .row .right{font-size:12px;font-weight:400;color:var(--muted);text-align:right;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .day-meal-list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .meal-card{
+      border:1px solid rgba(148, 163, 184, 0.26);
+      border-radius:18px;
+      padding:14px;
+      background:linear-gradient(135deg, rgba(255,255,255,0.97) 0%, rgba(248,250,252,0.92) 100%);
+      cursor:pointer;
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      min-height:108px;
+      width:100%;
+      text-align:left;
+      font-family:inherit;
+      color:inherit;
+    }
+    .meal-card:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+    .meal-card.active{
+      border-color:#60a5fa;
+      background:linear-gradient(135deg, rgba(239,246,255,0.98) 0%, rgba(224,242,254,0.9) 100%);
+      box-shadow:0 12px 28px rgba(37, 99, 235, 0.14);
+    }
+    .meal-card-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .meal-card-title{
+      font-size:15px;
+      font-weight:600;
+      color:#163152;
+    }
+    .meal-card-badge{
+      flex-shrink:0;
+      border-radius:999px;
+      background:rgba(255,255,255,0.78);
+      border:1px solid rgba(147, 197, 253, 0.5);
+      color:#2563eb;
+      font-size:11px;
+      font-weight:600;
+      padding:5px 9px;
+      letter-spacing:0.06em;
+    }
+    .meal-card-name{
+      font-size:15px;
+      font-weight:700;
+      color:#172033;
+      margin-bottom:8px;
+    }
+    .meal-card-items{
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.6;
+      word-break:break-word;
+    }
+    .chips{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:flex-start;
+      min-height:34px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(148, 163, 184, 0.45);
+      background:rgba(255,255,255,.9);
+      font-size:12px;
+      font-weight:500;
+      box-shadow:var(--shadow-sm);
+      max-width:100%;
+    }
+    .chip span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .chip .x{
+      border:none;
+      background:none;
+      color:#64748b;
+      cursor:pointer;
+      font-weight:600;
+      padding:0;
+      font-size:12px;
+      line-height:1;
+      flex-shrink:0;
+    }
+    .tip{
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:var(--radius-sm);
+      border:1px dashed rgba(59, 130, 246, 0.35);
+      background:rgba(239, 246, 255, 0.65);
+      font-size:12px;
+      font-weight:400;
+      color:#1d4ed8;
+      line-height:1.6;
+    }
+    .edit-hero{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:14px;
+    }
+    .edit-meta{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .edit-eyebrow{
+      font-size:12px;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:#3b82f6;
+      font-weight:600;
+    }
+    .edit-date{
+      font-size:1.05rem;
+      font-weight:700;
+      color:#172033;
+      line-height:1.35;
+    }
+    .edit-meal{
+      display:inline-flex;
+      align-items:center;
+      border-radius:999px;
+      background:rgba(255,255,255,0.72);
+      border:1px solid rgba(134, 239, 172, 0.6);
+      padding:7px 12px;
+      font-size:13px;
+      font-weight:700;
+      color:#15803d;
+      box-shadow:var(--shadow-sm);
+      cursor:pointer;
+    }
+    .meal-switcher{
+      display:flex;
+      gap:8px;
+      margin-bottom:14px;
+      flex-wrap:wrap;
+    }
+    .meal-pill{
+      border:none;
+      border-radius:999px;
+      background:rgba(255,255,255,0.66);
+      color:#4b5f74;
+      padding:8px 12px;
+      font-size:12px;
+      font-weight:600;
+      cursor:pointer;
+      font-family:inherit;
+      box-shadow:inset 0 0 0 1px rgba(148, 163, 184, 0.24);
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+    }
+    .meal-pill:hover{
+      transform:translateY(-1px);
+      box-shadow:var(--shadow-sm);
+    }
+    .meal-pill.active{
+      background:linear-gradient(135deg, #dcfce7 0%, #f0fdf4 100%);
+      color:#15803d;
+      box-shadow:inset 0 0 0 1px rgba(134, 239, 172, 0.4), 0 10px 20px rgba(74, 222, 128, 0.14);
+    }
+    .name-block{margin-top:14px;display:flex;flex-direction:column;gap:12px}
+    .name-item{font-size:14px;font-weight:400}
+    .name-item strong{
+      display:block;
+      margin-top:6px;
+      font-size:16px;
+      font-weight:700;
+      color:#172033;
+    }
+    .name-item input{
+      width:100%;
+      margin-top:6px;
+      border:1px solid var(--border);
+      border-radius:var(--radius-sm);
+      padding:11px 14px;
+      font-size:14px;
+      font-weight:400;
+      background:rgba(255,255,255,.9);
+      font-family:inherit;
+      letter-spacing:0.02em;
+    }
+    .name-item input::placeholder{color:#94a3b8}
+    .recipe-card{
+      border:1px solid rgba(147, 197, 253, 0.35);
+      border-radius:18px;
+      padding:14px;
+      background:linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(239,246,255,0.86) 100%);
+      box-shadow:var(--shadow-sm);
+    }
+    .recipe-card-emoji{
+      font-size:26px;
+      line-height:1;
+      margin-bottom:10px;
+    }
+    .recipe-card-label{
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:0.1em;
+      color:#2563eb;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+    .recipe-card-title{
+      font-size:17px;
+      font-weight:700;
+      color:#172033;
+      margin-bottom:8px;
+      word-break:break-word;
+    }
+    .recipe-card-meta{
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.65;
+      word-break:break-word;
+    }
+    /* 食材库外通用：仍供其他区域复用（若需） */
+    .cat{
+      border:1px solid rgba(148, 163, 184, 0.18);
+      border-radius:18px;
+      padding:14px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(248,250,252,0.9) 100%);
+    }
+    .cat + .cat{margin-top:14px}
+    .cat-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+    .cat-title{font-weight:600;font-size:15px;letter-spacing:0.03em}
+    .cat-subtitle{
+      font-size:12px;
+      color:#72849b;
+      margin-top:3px;
+    }
+    .cat-items{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    .catalog-chip{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      border-radius:var(--radius-sm);
+      cursor:grab;
+      transition:transform .15s, box-shadow .15s, opacity .15s;
+      user-select:none;
+    }
+    .catalog-chip:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+    .catalog-chip.dragging{
+      opacity:.45;
+      cursor:grabbing;
+    }
+    .catalog-chip-label{
+      border:none;
+      background:none;
+      padding:0;
+      font-size:13px;
+      font-weight:500;
+      cursor:pointer;
+      font-family:inherit;
+      color:inherit;
+    }
+    .catalog-chip-delete{
+      position:absolute;
+      top:-6px;
+      right:-6px;
+      display:none;
+      border:none;
+      background:#ef4444;
+      color:#fff;
+      width:18px;
+      height:18px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:11px;
+      line-height:1;
+      padding:0;
+      box-shadow:0 4px 10px rgba(239, 68, 68, 0.28);
+    }
+    .catalog-chip.armed .catalog-chip-delete{display:block}
+    .catalog-chip-delete:hover{background:#dc2626}
+    .cat-add-row{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      margin-top:4px;
+      min-width:0;
+    }
+    .cat-add-row input{
+      flex:1;
+      min-width:0;
+      border:1px solid var(--border);
+      border-radius:var(--radius-sm);
+      padding:10px 12px;
+      font-size:14px;
+      font-weight:400;
+      font-family:inherit;
+      background:rgba(255,255,255,.95);
+    }
+
+    /* —— 食材库：蓝色主调 + 清新字重与按钮底色 —— */
+    .catalog-grid{
+      display:grid;
+      gap:14px;
+    }
+    .panel.catalog .cat{
+      border:1px solid rgba(255, 255, 255, 0.82);
+      border-radius:20px;
+      padding:16px 15px;
+      box-shadow:0 14px 24px rgba(148, 163, 184, 0.1);
+      backdrop-filter:blur(8px);
+    }
+    .panel.catalog .cat--meat{
+      background:linear-gradient(135deg, #fff7f5 0%, #ffe4de 100%);
+    }
+    .panel.catalog .cat--veg{
+      background:linear-gradient(135deg, #f4fff7 0%, #dcfce7 100%);
+    }
+    .panel.catalog .cat--staple{
+      background:linear-gradient(135deg, #fffdf1 0%, #fef3c7 100%);
+    }
+    .panel.catalog .cat--fruit{
+      background:linear-gradient(135deg, #fff7fb 0%, #fce7f3 100%);
+    }
+    .panel.catalog .cat--side{
+      background:linear-gradient(135deg, #f8f7ff 0%, #ede9fe 100%);
+    }
+    .panel.catalog .cat-title{
+      font-weight:600;
+      font-size:15px;
+      letter-spacing:0.05em;
+      color:#21314c;
+    }
+    .panel.catalog .cat-items{
+      gap:9px;
+      margin-bottom:12px;
+    }
+    /* 食材名：统一字色；底色按序多色清新交替 */
+    .panel.catalog .catalog-chip{
+      font-weight:400;
+      font-size:13px;
+      letter-spacing:0.06em;
+      color:#475569;
+      border:1px solid rgba(148, 163, 184, 0.38);
+      border-radius:999px;
+      padding:9px 14px;
+      background:linear-gradient(145deg, #f0f9ff 0%, #e0f2fe 100%);
+      box-shadow:0 1px 8px rgba(15, 23, 42, 0.05);
+    }
+    .panel.catalog .catalog-chip:hover{
+      transform:translateY(-2px);
+      box-shadow:0 4px 14px rgba(15, 23, 42, 0.08);
+      border-color:rgba(100, 116, 139, 0.45);
+      color:#475569;
+    }
+    .panel.catalog .cat--meat .catalog-chip{background:linear-gradient(145deg, #e0f2fe 0%, #bae6fd 100%);border-color:rgba(56, 189, 248, 0.35);}
+    .panel.catalog .cat--veg .catalog-chip{background:linear-gradient(145deg, #d1fae5 0%, #a7f3d0 100%);border-color:rgba(52, 211, 153, 0.35);}
+    .panel.catalog .cat--staple .catalog-chip{background:linear-gradient(145deg, #fef9c3 0%, #fde68a 100%);border-color:rgba(234, 179, 8, 0.35);}
+    .panel.catalog .cat--fruit .catalog-chip{background:linear-gradient(145deg, #fce7f3 0%, #fbcfe8 100%);border-color:rgba(244, 114, 182, 0.35);}
+    .panel.catalog .cat--side .catalog-chip{background:linear-gradient(145deg, #ede9fe 0%, #ddd6fe 100%);border-color:rgba(167, 139, 250, 0.35);}
+    .panel.catalog .cat-add-row input{
+      border:1px solid rgba(180, 215, 255, 0.8);
+      background:rgba(255, 255, 255, 0.94);
+      font-weight:400;
+      letter-spacing:0.02em;
+      color:#1e293b;
+    }
+    .panel.catalog .cat-add-row input::placeholder{
+      color:#93c5fd;
+      font-weight:300;
+    }
+    .panel.catalog .btn.primary{
+      background:linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      border-color:#60a5fa;
+      color:#fff;
+      font-weight:400;
+      letter-spacing:0.06em;
+      box-shadow:0 2px 12px rgba(37, 99, 235, 0.25);
+    }
+    .panel.catalog .btn.primary:hover{
+      box-shadow:0 4px 16px rgba(37, 99, 235, 0.32);
+    }
+    .panel.catalog .hint{
+      margin-top:16px;
+      background:linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(239,246,255,0.92) 100%);
+      border:1px solid rgba(191, 219, 254, 0.65);
+      color:#244277;
+      font-weight:400;
+      letter-spacing:0.03em;
+      line-height:1.7;
+    }
+    .btn{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.9);
+      border-radius:var(--radius-sm);
+      padding:10px 14px;
+      font-weight:500;
+      cursor:pointer;
+      font-size:13px;
+      white-space:nowrap;
+      font-family:inherit;
+      letter-spacing:0.03em;
+      transition:background .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+    .btn:hover{box-shadow:var(--shadow-sm);transform:translateY(-1px)}
+    .btn.primary{background:var(--primary-soft);border-color:#93c5fd;color:#1d4ed8}
+    .btn.warn{background:#fef2f2;border-color:#fecaca;color:#b91c1c}
+    .guide-images{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .guide-image{
+      width:100%;
+      display:block;
+      border-radius:20px;
+      background:#fff;
+      box-shadow:var(--shadow);
+    }
+    .hint{
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:var(--radius-sm);
+      font-size:12px;
+      font-weight:400;
+      background:rgba(255, 251, 235, 0.85);
+      border:1px solid rgba(253, 224, 71, 0.45);
+      color:#a16207;
+      line-height:1.65;
+    }
+    .hidden{display:none}
+
+    /* 月历矩阵：表头 周一…周日 */
+    .cal-wrap{margin-top:8px}
+    .cal-header{
+      display:grid;
+      grid-template-columns:repeat(7,1fr);
+      gap:6px;
+      margin-bottom:10px;
+      font-size:11px;
+      font-weight:500;
+      color:var(--muted);
+      text-align:center;
+      letter-spacing:0.06em;
+    }
+    .cal-cells{
+      display:grid;
+      grid-template-columns:repeat(7,1fr);
+      gap:6px;
+      min-height:360px;
+    }
+    .cal-cell{
+      min-height:76px;
+      border:1px solid var(--border);
+      border-radius:var(--radius-sm);
+      padding:6px 6px 8px;
+      background:rgba(255,255,255,.88);
+      cursor:pointer;
+      display:flex;
+      flex-direction:column;
+      align-items:stretch;
+      gap:4px;
+      transition:box-shadow .2s, border-color .2s, transform .15s;
+    }
+    .cal-cell:hover{
+      box-shadow:var(--shadow-sm);
+      border-color:#c4b5fd;
+      transform:translateY(-1px);
+    }
+    .cal-cell.other-month{
+      background:rgba(241, 245, 249, 0.75);
+      color:#94a3b8;
+    }
+    .cal-cell .day-num{font-size:12px;font-weight:500;text-align:left;color:#475569}
+    .cal-cell.other-month .day-num{color:#94a3b8}
+    .cal-cell .meat-mini{
+      font-size:10px;
+      font-weight:400;
+      line-height:1.35;
+      color:var(--muted);
+      overflow:hidden;
+      display:-webkit-box;
+      -webkit-line-clamp:3;
+      -webkit-box-orient:vertical;
+      word-break:break-all;
+    }
+    @media (max-width: 540px){
+      .phone{
+        padding-left:14px;
+        padding-right:14px;
+      }
+      .panel{
+        padding:16px;
+        border-radius:20px;
+      }
+      .action-row{
+        grid-template-columns:1fr;
+      }
+      .meal-card{
+        min-height:96px;
+      }
+      .cat-add-row{
+        flex-wrap:wrap;
+      }
+      .cat-add-row input,
+      .cat-add-row .btn{
+        width:100%;
+      }
+      .cal-cell{
+        min-height:70px;
+        padding:6px;
+      }
+    }
+    @media (max-width: 390px){
+      .phone{
+        padding-left:12px;
+        padding-right:12px;
+      }
+      .tabs{
+        gap:8px;
+      }
+      .tab{
+        font-size:12px;
+        padding:9px 6px;
+      }
+      .meal-card-head{
+        align-items:flex-start;
+      }
+      .edit-hero{
+        flex-direction:column;
+      }
+      .view-toolbar{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+      .chip{
+        font-size:11px;
+        padding:5px 9px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce){
+      *,
+      *::before,
+      *::after{
+        scroll-behavior:auto !important;
+        transition:none !important;
+        animation:none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="phone">
+    <div class="panel header">
+      <div class="title">一周三补营养食谱（1岁+）</div>
+      <div class="tabs">
+        <button type="button" class="tab" id="tabMonth">月视图</button>
+        <button type="button" class="tab" id="tabWeek">周视图</button>
+        <button type="button" class="tab" id="tabDay">日视图</button>
+      </div>
+    </div>
+
+    <div class="panel" id="viewPanel">
+      <div class="view-toolbar">
+        <div class="section-title" id="viewTitle">视图</div>
+        <button type="button" class="back-btn hidden" id="btnBackView">返回上一级</button>
+      </div>
+      <div id="viewList" class="list"></div>
+      <div id="dayDetail" class="hidden"></div>
+    </div>
+
+    <div class="panel edit" id="editPanel">
+      <div class="edit-hero">
+        <div class="edit-meta">
+          <div class="edit-eyebrow">当前编辑</div>
+          <div class="edit-date" id="currentEditDate">4月10日</div>
+        </div>
+        <button type="button" class="edit-meal" id="currentEditMeal">午餐</button>
+      </div>
+      <div class="meal-switcher" id="mealSwitcher"></div>
+      <div class="chips" id="selectedChips"></div>
+      <div class="tip">提示：可将本餐主角食材放在第一位，便于月/周视图格子内展示当日肉类。</div>
+      <div class="name-block">
+        <div class="name-item" id="autoName">建议菜谱名称：<strong>暂无菜谱</strong></div>
+        <div class="recipe-card" id="recipeCard">
+          <div class="recipe-card-label">同步食物卡片</div>
+          <div class="recipe-card-emoji">🍽️</div>
+          <div class="recipe-card-title">暂无菜谱</div>
+          <div class="recipe-card-meta">选择或添加食材后，这里会同步展示当前餐食的推荐名称与食材组合。</div>
+        </div>
+        <div class="name-item">
+          自定义菜谱名称：
+          <input id="customNameInput" placeholder="请输入菜名" />
+        </div>
+      </div>
+    </div>
+
+    <div class="panel catalog">
+      <div class="section-title">食材库（在各分类内输入并添加；全库名称不可重复）</div>
+      <div class="catalog-grid" id="catalogAnchor">
+        <div class="cat cat--meat">
+          <div class="cat-head">
+            <div>
+              <div class="cat-title">🥩 肉类</div>
+              <div class="cat-subtitle">补充优质蛋白，优先轮换不同肉源</div>
+            </div>
+          </div>
+          <div class="cat-items" id="meatItems"></div>
+          <div class="cat-add-row">
+            <input type="text" id="inputMeat" placeholder="输入肉类名称" autocomplete="off" />
+            <button type="button" class="btn primary" id="btnSubmitMeat">添加</button>
+          </div>
+        </div>
+        <div class="cat cat--veg">
+          <div class="cat-head">
+            <div>
+              <div class="cat-title">🥬 蔬菜</div>
+              <div class="cat-subtitle">清爽搭配，尽量做到颜色多样</div>
+            </div>
+          </div>
+          <div class="cat-items" id="vegItems"></div>
+          <div class="cat-add-row">
+            <input type="text" id="inputVeg" placeholder="输入蔬菜名称" autocomplete="off" />
+            <button type="button" class="btn primary" id="btnSubmitVeg">添加</button>
+          </div>
+        </div>
+        <div class="cat cat--staple">
+          <div class="cat-head">
+            <div>
+              <div class="cat-title">🍚 主食</div>
+              <div class="cat-subtitle">米面谷薯轮替，主视觉决定菜谱气质</div>
+            </div>
+          </div>
+          <div class="cat-items" id="stapleItems"></div>
+          <div class="cat-add-row">
+            <input type="text" id="inputStaple" placeholder="输入主食名称" autocomplete="off" />
+            <button type="button" class="btn primary" id="btnSubmitStaple">添加</button>
+          </div>
+        </div>
+        <div class="cat cat--fruit">
+          <div class="cat-head">
+            <div>
+              <div class="cat-title">🍓 水果</div>
+              <div class="cat-subtitle">适合作为加餐或餐后补充，优先时令水果</div>
+            </div>
+          </div>
+          <div class="cat-items" id="fruitItems"></div>
+          <div class="cat-add-row">
+            <input type="text" id="inputFruit" placeholder="输入水果名称" autocomplete="off" />
+            <button type="button" class="btn primary" id="btnSubmitFruit">添加</button>
+          </div>
+        </div>
+        <div class="cat cat--side">
+          <div class="cat-head">
+            <div>
+              <div class="cat-title">🫙 佐食</div>
+              <div class="cat-subtitle">用少量点缀风味和营养，注意过敏风险</div>
+            </div>
+          </div>
+          <div class="cat-items" id="sideItems"></div>
+          <div class="cat-add-row">
+            <input type="text" id="inputSide" placeholder="输入佐食名称" autocomplete="off" />
+            <button type="button" class="btn primary" id="btnSubmitSide">添加</button>
+          </div>
+        </div>
+      </div>
+      <div class="hint" id="weekHint">周判定提示会显示在这里</div>
+    </div>
+
+    <div class="guide-images">
+      <img class="guide-image" src="./guide-baby.jpg" alt="中国7~24月龄婴幼儿平衡膳食宝塔" loading="lazy" />
+      <img class="guide-image" src="./guide-child.jpg" alt="中国学龄前儿童平衡膳食宝塔" loading="lazy" />
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = "nutrition_meal_planner_v3";
+    const mealKeys = ["早餐", "午餐", "晚餐"];
+    const WEEK_HEADER = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
+
+    function defaultCatalog() {
+      return {
+        meat: [
+          { id: "beef", label: "牛肉" },
+          { id: "pork", label: "猪肉" },
+          { id: "chicken", label: "鸡肉" },
+          { id: "cod", label: "鳕鱼" },
+          { id: "salmon", label: "三文鱼" },
+          { id: "shrimp", label: "虾" }
+        ],
+        veg: [
+          { id: "carrot", label: "胡萝卜" },
+          { id: "spinach", label: "菠菜" },
+          { id: "pumpkin", label: "南瓜" },
+          { id: "broccoli", label: "西兰花" },
+          { id: "bokchoy", label: "油菜" }
+        ],
+        staple: [
+          { id: "rice", label: "米饭" },
+          { id: "noodle", label: "面条" },
+          { id: "millet", label: "小米" },
+          { id: "oat", label: "燕麦" },
+          { id: "bread", label: "面包" },
+          { id: "egg", label: "鸡蛋" },
+          { id: "milk", label: "牛奶" }
+        ],
+        fruit: [
+          { id: "banana", label: "香蕉" },
+          { id: "apple", label: "苹果" },
+          { id: "pear", label: "梨" },
+          { id: "blueberry", label: "蓝莓" },
+          { id: "strawberry", label: "草莓" },
+          { id: "avocado", label: "牛油果" },
+          { id: "orange", label: "橙子" }
+        ],
+        side: [
+          { id: "black_sesame", label: "黑芝麻酱" },
+          { id: "peanut_butter", label: "花生酱" },
+          { id: "chia_seed", label: "奇亚籽" },
+          { id: "cheese", label: "芝士" },
+          { id: "yogurt", label: "酸奶" },
+          { id: "tofu", label: "豆腐" },
+          { id: "seaweed", label: "海苔碎" }
+        ]
+      };
+    }
+
+    let catalog = defaultCatalog();
+    const itemLabelMap = {};
+
+    function rebuildLabelMap() {
+      for (const k of Object.keys(itemLabelMap)) delete itemLabelMap[k];
+      Object.values(catalog).flat().forEach(item => { itemLabelMap[item.id] = item.label; });
+    }
+
+    let recipeNames = {};
+
+    const monthYear = 2026;
+    const monthNum = 4;
+
+    let viewMode = "month";
+    let selectedDate = "2026-04-10";
+    let selectedMeal = "午餐";
+    let mealSwitchOpen = false;
+    let draggingCatalogItemId = null;
+    let draggingCatalogCategory = null;
+    let armedDeleteCatalogItemId = null;
+    let catalogClickTimer = null;
+    let catalogPressTimer = null;
+    let catalogLongPressTriggered = false;
+
+    let scheduleByDate = {};
+
+    function toDateObj(dateStr) {
+      const [y, m, d] = dateStr.split("-").map(Number);
+      return new Date(y, m - 1, d);
+    }
+    function toDateStr(dateObj) {
+      const y = dateObj.getFullYear();
+      const m = String(dateObj.getMonth() + 1).padStart(2, "0");
+      const d = String(dateObj.getDate()).padStart(2, "0");
+      return `${y}-${m}-${d}`;
+    }
+    function addDays(dateStr, n) {
+      const dt = toDateObj(dateStr);
+      dt.setDate(dt.getDate() + n);
+      return toDateStr(dt);
+    }
+    /** 周一为 0，周日为 6 */
+    function getMondayBasedDow(dateObj) {
+      return (dateObj.getDay() + 6) % 7;
+    }
+    function getWeekStart(dateStr) {
+      const dt = toDateObj(dateStr);
+      const dow = getMondayBasedDow(dt);
+      dt.setDate(dt.getDate() - dow);
+      return toDateStr(dt);
+    }
+    function getWeekDates(dateStr) {
+      const start = getWeekStart(dateStr);
+      return Array.from({ length: 7 }, (_, i) => addDays(start, i));
+    }
+    function getWeekdayCN(dateStr) {
+      const map = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+      return map[toDateObj(dateStr).getDay()];
+    }
+    function fmtCNDate(dateStr) {
+      const dt = toDateObj(dateStr);
+      return `${dt.getMonth() + 1}月${dt.getDate()}日`;
+    }
+
+    /** 生成当月日历矩阵（含首尾补位），周一为第一列 */
+    function getMonthMatrixCells(year, month) {
+      const first = new Date(year, month - 1, 1);
+      const lastDay = new Date(year, month, 0).getDate();
+      const startDow = getMondayBasedDow(first);
+      const cells = [];
+
+      const prevMonthLast = new Date(year, month - 1, 0).getDate();
+      for (let i = 0; i < startDow; i++) {
+        const day = prevMonthLast - startDow + i + 1;
+        const dt = new Date(year, month - 2, day);
+        cells.push({ dateStr: toDateStr(dt), inCurrentMonth: false });
+      }
+      for (let d = 1; d <= lastDay; d++) {
+        const dt = new Date(year, month - 1, d);
+        cells.push({ dateStr: toDateStr(dt), inCurrentMonth: true });
+      }
+      const pad = (7 - (cells.length % 7)) % 7;
+      let n = 1;
+      const ny = month === 12 ? year + 1 : year;
+      const nm = month === 12 ? 1 : month + 1;
+      for (let i = 0; i < pad; i++) {
+        const dt = new Date(ny, nm - 1, n++);
+        cells.push({ dateStr: toDateStr(dt), inCurrentMonth: false });
+      }
+      return cells;
+    }
+
+    function ensureDateMeals(dateStr) {
+      if (!scheduleByDate[dateStr]) {
+        scheduleByDate[dateStr] = { 早餐: [], 午餐: [], 晚餐: [] };
+      }
+      return scheduleByDate[dateStr];
+    }
+    function getCurrentItems() {
+      return ensureDateMeals(selectedDate)[selectedMeal];
+    }
+    function setCurrentItems(items) {
+      ensureDateMeals(selectedDate)[selectedMeal] = items;
+    }
+
+    function buildDefaultMonthData() {
+      const cells = getMonthMatrixCells(monthYear, monthNum);
+      cells.forEach(c => ensureDateMeals(c.dateStr));
+
+      ensureDateMeals("2026-04-10").早餐 = ["egg", "milk", "bread"];
+      ensureDateMeals("2026-04-10").午餐 = ["beef", "carrot", "rice"];
+      ensureDateMeals("2026-04-10").晚餐 = ["cod", "spinach", "pumpkin"];
+
+      ensureDateMeals("2026-04-08").午餐 = ["chicken", "broccoli", "rice"];
+      ensureDateMeals("2026-04-09").午餐 = ["pork", "carrot", "noodle"];
+      ensureDateMeals("2026-04-11").午餐 = ["shrimp", "pumpkin", "rice"];
+      ensureDateMeals("2026-04-12").午餐 = ["salmon", "spinach", "millet"];
+    }
+
+    function getDateMealKey(dateStr, meal) {
+      return `${dateStr}_${meal}`;
+    }
+
+    function getDisplayDishName(dateStr, meal) {
+      const key = getDateMealKey(dateStr, meal);
+      const custom = (recipeNames[key] || "").trim();
+      return custom || getAutoDishName(ensureDateMeals(dateStr)[meal]);
+    }
+
+    function getMealSummaryText(dateStr, meal) {
+      const items = ensureDateMeals(dateStr)[meal];
+      return items.length
+        ? items.map(id => itemLabelMap[id] || id).join(" + ")
+        : "暂未添加食材";
+    }
+
+    function isInCategory(categoryKey, itemId) {
+      return (catalog[categoryKey] || []).some(item => item.id === itemId);
+    }
+
+    function scrollToCatalog() {
+      document.getElementById("catalogAnchor").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function getPreferredMealForDate(dateStr) {
+      const meals = ensureDateMeals(dateStr);
+      return mealKeys.find(meal => meals[meal].length) || mealKeys[0];
+    }
+
+    function getDishVisual(items, customName = "") {
+      const text = customName || "";
+      if (/饺/.test(text)) return { emoji: "🥟", vibe: "饺子" };
+      if (/面/.test(text) || items.includes("noodle")) return { emoji: "🍜", vibe: "汤面" };
+      if (/粥/.test(text) || items.includes("millet") || items.includes("oat")) return { emoji: "🥣", vibe: "暖粥" };
+      if (/饭/.test(text) || items.includes("rice")) return { emoji: "🍚", vibe: "烩饭" };
+      if (items.some(id => isInCategory("fruit", id))) return { emoji: "🍓", vibe: "果香" };
+      if (items.some(id => isInCategory("side", id))) return { emoji: "🫙", vibe: "佐食" };
+      if (items.includes("bread")) return { emoji: "🥪", vibe: "轻食" };
+      if (items.includes("egg")) return { emoji: "🍳", vibe: "蛋香" };
+      if (items.some(id => ["cod", "salmon", "shrimp"].includes(id))) return { emoji: "🐟", vibe: "海味" };
+      return { emoji: "🍽️", vibe: "餐盘" };
+    }
+
+    function updateRecipePreview(nameOverride) {
+      const autoName = getAutoDishName(getCurrentItems());
+      const rawName = nameOverride ?? recipeNames[getDateMealKey(selectedDate, selectedMeal)] ?? "";
+      const activeName = rawName.trim() || autoName;
+      const visual = getDishVisual(getCurrentItems(), activeName);
+      document.getElementById("autoName").innerHTML = `建议菜谱名称：<strong>${autoName}</strong>`;
+      document.getElementById("recipeCard").innerHTML = `
+        <div class="recipe-card-label">同步食物卡片</div>
+        <div class="recipe-card-emoji">${visual.emoji}</div>
+        <div class="recipe-card-title">${activeName}</div>
+        <div class="recipe-card-meta">${selectedMeal} · ${fmtCNDate(selectedDate)} · ${visual.vibe}主视觉 · ${getMealSummaryText(selectedDate, selectedMeal)}</div>
+      `;
+    }
+
+    function selectDateMeal(dateStr, meal, nextViewMode = "day") {
+      selectedDate = dateStr;
+      selectedMeal = meal || getPreferredMealForDate(dateStr);
+      mealSwitchOpen = false;
+      viewMode = nextViewMode;
+      renderAll();
+    }
+
+    function getAutoDishName(items) {
+      if (!items.length) return "暂无菜谱";
+      const labels = items.map(id => itemLabelMap[id] || id);
+      const core = labels.slice(0, 2).join("");
+      if (items.includes("rice")) return `${core}烩饭`;
+      if (items.includes("noodle")) return `${core}面`;
+      if (items.includes("millet")) return `${core}粥`;
+      if (items.includes("cod") || items.includes("salmon")) return `${core}配蔬菜`;
+      return `${core}拼盘`;
+    }
+
+    function isMeat(itemId) {
+      return catalog.meat.some(m => m.id === itemId);
+    }
+
+    function getDayMeatSummary(dateStr) {
+      const meals = ensureDateMeals(dateStr);
+      const all = [...meals.早餐, ...meals.午餐, ...meals.晚餐];
+      const uniqMeat = [...new Set(all.filter(isMeat))];
+      if (!uniqMeat.length) return "暂无肉类";
+      return uniqMeat.map(id => itemLabelMap[id] || id).join(" / ");
+    }
+
+    function getWeeklyMeatHint(itemId) {
+      const weekDates = getWeekDates(selectedDate);
+      const selectedDay = toDateObj(selectedDate).getTime();
+      const eatenBefore = [];
+      const eatenThisWeekSet = new Set();
+
+      for (const dateStr of weekDates) {
+        const meals = ensureDateMeals(dateStr);
+        const all = [...meals.早餐, ...meals.午餐, ...meals.晚餐];
+        const dayMeat = new Set(all.filter(isMeat));
+        dayMeat.forEach(id => eatenThisWeekSet.add(id));
+
+        if (toDateObj(dateStr).getTime() < selectedDay && dayMeat.has(itemId)) {
+          eatenBefore.push(getWeekdayCN(dateStr));
+        }
+      }
+
+      const notEaten = catalog.meat
+        .map(m => m.id)
+        .filter(id => !eatenThisWeekSet.has(id))
+        .map(id => itemLabelMap[id]);
+
+      return { eatenBefore, notEaten };
+    }
+
+    function normalizeLabel(s) {
+      return String(s || "").trim().toLowerCase();
+    }
+
+    function labelExistsInCatalog(label) {
+      const n = normalizeLabel(label);
+      if (!n) return true;
+      return Object.values(catalog).flat().some(
+        item => normalizeLabel(item.label) === n
+      );
+    }
+
+    function generateIngredientId(label) {
+      const base = label.trim().replace(/\s+/g, "_").replace(/[^\w\u4e00-\u9fa5]/g, "") || "item";
+      return `ing_${base.slice(0, 20)}_${Date.now().toString(36)}`;
+    }
+
+    function addIngredientToCategory(categoryKey, rawLabel) {
+      const label = String(rawLabel || "").trim();
+      const categoryNameMap = {
+        meat: "肉类",
+        veg: "蔬菜",
+        staple: "主食",
+        fruit: "水果",
+        side: "佐食"
+      };
+      if (!label) {
+        updateWeekHint("请输入食材名称。");
+        return false;
+      }
+      if (labelExistsInCatalog(label)) {
+        updateWeekHint(`「${label}」已在食材库中存在，无法重复添加。`);
+        return false;
+      }
+      const id = generateIngredientId(label);
+      catalog[categoryKey].push({ id, label });
+      itemLabelMap[id] = label;
+      updateWeekHint(`已加入${categoryNameMap[categoryKey] || "食材"}：${label}`);
+      return true;
+    }
+
+    function deleteIngredientFromCatalog(categoryKey, itemId) {
+      if (!catalog[categoryKey]) return;
+      catalog[categoryKey] = catalog[categoryKey].filter(item => item.id !== itemId);
+      delete itemLabelMap[itemId];
+
+      Object.keys(scheduleByDate).forEach(dateStr => {
+        mealKeys.forEach(meal => {
+          scheduleByDate[dateStr][meal] = ensureDateMeals(dateStr)[meal].filter(id => id !== itemId);
+        });
+      });
+
+      updateWeekHint("已从食材库删除该食材，并同步移除已选餐食中的对应项。");
+      saveState();
+      renderAll();
+    }
+
+    function moveCatalogIngredient(categoryKey, fromIndex, toIndex) {
+      const list = catalog[categoryKey];
+      if (!list || fromIndex === toIndex || fromIndex < 0 || toIndex < 0 || toIndex >= list.length) return;
+      const [moved] = list.splice(fromIndex, 1);
+      list.splice(toIndex, 0, moved);
+      saveState();
+      renderCatalog();
+    }
+
+    function saveState() {
+      const payload = {
+        version: 3,
+        scheduleByDate,
+        recipeNames,
+        catalog,
+        selectedDate,
+        selectedMeal,
+        viewMode
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return false;
+        const parsed = JSON.parse(raw);
+        if (!parsed || !parsed.scheduleByDate) return false;
+        scheduleByDate = parsed.scheduleByDate;
+        recipeNames = parsed.recipeNames || {};
+        if (parsed.catalog && parsed.catalog.meat && parsed.catalog.veg && parsed.catalog.staple) {
+          catalog = { ...defaultCatalog(), ...parsed.catalog };
+        }
+        rebuildLabelMap();
+        selectedDate = parsed.selectedDate || selectedDate;
+        selectedMeal = parsed.selectedMeal || selectedMeal;
+        viewMode = parsed.viewMode || viewMode;
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    function renderTabs() {
+      const tabs = {
+        month: document.getElementById("tabMonth"),
+        week: document.getElementById("tabWeek"),
+        day: document.getElementById("tabDay")
+      };
+      Object.entries(tabs).forEach(([mode, el]) => {
+        el.classList.toggle("active", mode === viewMode);
+      });
+    }
+
+    function renderMonthGrid(container) {
+      container.innerHTML = "";
+      const wrap = document.createElement("div");
+      wrap.className = "cal-wrap";
+
+      const head = document.createElement("div");
+      head.className = "cal-header";
+      head.innerHTML = WEEK_HEADER.map(h => `<div>${h}</div>`).join("");
+      wrap.appendChild(head);
+
+      const grid = document.createElement("div");
+      grid.className = "cal-cells";
+      const cells = getMonthMatrixCells(monthYear, monthNum);
+      cells.forEach(({ dateStr, inCurrentMonth }) => {
+        const cell = document.createElement("div");
+        cell.className = "cal-cell" + (inCurrentMonth ? "" : " other-month");
+        const d = toDateObj(dateStr).getDate();
+        cell.innerHTML = `<div class="day-num">${d}</div><div class="meat-mini">${getDayMeatSummary(dateStr)}</div>`;
+        cell.addEventListener("click", () => {
+          selectDateMeal(dateStr, getPreferredMealForDate(dateStr), "week");
+        });
+        grid.appendChild(cell);
+      });
+      wrap.appendChild(grid);
+      container.appendChild(wrap);
+    }
+
+    function renderView() {
+      renderTabs();
+      const viewTitle = document.getElementById("viewTitle");
+      const viewList = document.getElementById("viewList");
+      const dayDetail = document.getElementById("dayDetail");
+      const backBtn = document.getElementById("btnBackView");
+      viewList.innerHTML = "";
+      dayDetail.innerHTML = "";
+      dayDetail.classList.add("hidden");
+      backBtn.classList.toggle("hidden", viewMode === "month");
+
+      if (viewMode === "month") {
+        viewTitle.textContent = `月视图（${monthYear}年${monthNum}月）· 周一至周日 · 点击日期进入该周`;
+        renderMonthGrid(viewList);
+        return;
+      }
+
+      if (viewMode === "week") {
+        const weekDates = getWeekDates(selectedDate);
+        viewTitle.textContent = `周视图（${fmtCNDate(weekDates[0])} - ${fmtCNDate(weekDates[6])}）· 点击某天进入日视图`;
+        weekDates.forEach(dateStr => {
+          const row = document.createElement("div");
+          row.className = "row" + (dateStr === selectedDate ? " active" : "");
+          row.innerHTML = `<span class="left">${getWeekdayCN(dateStr)} ${fmtCNDate(dateStr)}</span><span class="right">${getDayMeatSummary(dateStr)}</span>`;
+          row.addEventListener("click", () => {
+            selectDateMeal(dateStr, getPreferredMealForDate(dateStr), "day");
+          });
+          viewList.appendChild(row);
+        });
+        return;
+      }
+
+      viewTitle.textContent = `日视图（${fmtCNDate(selectedDate)}）· 点击某一餐后可直接编辑`;
+      dayDetail.classList.remove("hidden");
+      const mealList = document.createElement("div");
+      mealList.className = "day-meal-list";
+      mealKeys.forEach(meal => {
+        const dishName = getDisplayDishName(selectedDate, meal);
+        const visual = getDishVisual(ensureDateMeals(selectedDate)[meal], dishName);
+        const mealCard = document.createElement("button");
+        mealCard.type = "button";
+        mealCard.className = "meal-card" + (meal === selectedMeal ? " active" : "");
+        mealCard.innerHTML = `
+          <div class="meal-card-head">
+            <div class="meal-card-title">${meal}</div>
+            <div class="meal-card-badge">${meal === selectedMeal ? "正在编辑" : "点击编辑"}</div>
+          </div>
+          <div class="meal-card-name">${visual.emoji} ${dishName}</div>
+          <div class="meal-card-items">${getMealSummaryText(selectedDate, meal)}</div>
+        `;
+        mealCard.addEventListener("click", () => {
+          if (selectedMeal !== meal) {
+            selectedMeal = meal;
+            mealSwitchOpen = false;
+            renderAll();
+          }
+        });
+        mealList.appendChild(mealCard);
+      });
+      dayDetail.appendChild(mealList);
+    }
+
+    function renderEdit() {
+      document.getElementById("currentEditDate").textContent = fmtCNDate(selectedDate);
+      document.getElementById("currentEditMeal").textContent = selectedMeal;
+
+      const mealSwitcher = document.getElementById("mealSwitcher");
+      mealSwitcher.classList.toggle("hidden", !mealSwitchOpen);
+      mealSwitcher.innerHTML = "";
+      mealKeys.forEach(meal => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "meal-pill" + (meal === selectedMeal ? " active" : "");
+        btn.textContent = meal;
+        btn.addEventListener("click", () => {
+          selectedMeal = meal;
+          mealSwitchOpen = false;
+          renderAll();
+        });
+        mealSwitcher.appendChild(btn);
+      });
+
+      const chips = document.getElementById("selectedChips");
+      chips.innerHTML = "";
+      const items = getCurrentItems();
+      if (!items.length) {
+        const empty = document.createElement("button");
+        empty.type = "button";
+        empty.className = "chip";
+        empty.innerHTML = "<span>暂未选择食材</span>";
+        empty.addEventListener("click", scrollToCatalog);
+        chips.appendChild(empty);
+      }
+      items.forEach((id, idx) => {
+        const chip = document.createElement("div");
+        chip.className = "chip";
+        chip.innerHTML = `<span>${itemLabelMap[id] || id}</span>`;
+
+        if (idx > 0) {
+          const up = document.createElement("button");
+          up.className = "x";
+          up.textContent = "↑";
+          up.title = "前移";
+          up.addEventListener("click", () => {
+            const next = items.slice();
+            [next[idx - 1], next[idx]] = [next[idx], next[idx - 1]];
+            setCurrentItems(next);
+            saveState();
+            renderAll();
+          });
+          chip.appendChild(up);
+        }
+
+        const del = document.createElement("button");
+        del.className = "x";
+        del.textContent = "×";
+        del.title = "删除";
+        del.addEventListener("click", () => {
+          const next = items.slice();
+          next.splice(idx, 1);
+          setCurrentItems(next);
+          saveState();
+          renderAll();
+        });
+        chip.appendChild(del);
+        chips.appendChild(chip);
+      });
+
+      const key = getDateMealKey(selectedDate, selectedMeal);
+      const customInput = document.getElementById("customNameInput");
+      customInput.value = recipeNames[key] || "";
+      updateRecipePreview();
+    }
+
+    function renderCatalog() {
+      const meatItems = document.getElementById("meatItems");
+      const vegItems = document.getElementById("vegItems");
+      const stapleItems = document.getElementById("stapleItems");
+      const fruitItems = document.getElementById("fruitItems");
+      const sideItems = document.getElementById("sideItems");
+      meatItems.innerHTML = "";
+      vegItems.innerHTML = "";
+      stapleItems.innerHTML = "";
+      fruitItems.innerHTML = "";
+      sideItems.innerHTML = "";
+
+      const renderButtons = (target, items, type) => {
+        items.forEach((item, index) => {
+          const chip = document.createElement("div");
+          chip.className = "catalog-chip" + (armedDeleteCatalogItemId === item.id ? " armed" : "");
+          chip.draggable = true;
+          chip.dataset.itemId = item.id;
+          chip.dataset.category = type;
+          chip.dataset.index = String(index);
+
+          const labelBtn = document.createElement("button");
+          labelBtn.type = "button";
+          labelBtn.className = "catalog-chip-label";
+          labelBtn.textContent = item.label;
+          labelBtn.title = "点击添加，双击或长按显示删除";
+          const armDelete = () => {
+            clearTimeout(catalogClickTimer);
+            clearTimeout(catalogPressTimer);
+            catalogLongPressTriggered = true;
+            armedDeleteCatalogItemId = armedDeleteCatalogItemId === item.id ? null : item.id;
+            renderCatalog();
+          };
+          labelBtn.addEventListener("click", () => {
+            if (catalogLongPressTriggered) {
+              catalogLongPressTriggered = false;
+              return;
+            }
+            clearTimeout(catalogClickTimer);
+            catalogClickTimer = setTimeout(() => {
+              armedDeleteCatalogItemId = null;
+              handleAddIngredient(item.id, type);
+            }, 220);
+          });
+          labelBtn.addEventListener("dblclick", (e) => {
+            e.preventDefault();
+            armDelete();
+          });
+          labelBtn.addEventListener("pointerdown", () => {
+            catalogLongPressTriggered = false;
+            clearTimeout(catalogPressTimer);
+            catalogPressTimer = setTimeout(() => {
+              armDelete();
+            }, 450);
+          });
+          const clearPressTimer = () => {
+            clearTimeout(catalogPressTimer);
+          };
+          labelBtn.addEventListener("pointerup", clearPressTimer);
+          labelBtn.addEventListener("pointerleave", clearPressTimer);
+          labelBtn.addEventListener("pointercancel", clearPressTimer);
+
+          const deleteBtn = document.createElement("button");
+          deleteBtn.type = "button";
+          deleteBtn.className = "catalog-chip-delete";
+          deleteBtn.textContent = "×";
+          deleteBtn.title = "删除食材";
+          deleteBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            deleteIngredientFromCatalog(type, item.id);
+          });
+
+          chip.addEventListener("dragstart", () => {
+            clearTimeout(catalogClickTimer);
+            clearTimeout(catalogPressTimer);
+            armedDeleteCatalogItemId = null;
+            draggingCatalogItemId = item.id;
+            draggingCatalogCategory = type;
+            chip.classList.add("dragging");
+          });
+          chip.addEventListener("dragend", () => {
+            draggingCatalogItemId = null;
+            draggingCatalogCategory = null;
+            chip.classList.remove("dragging");
+          });
+          chip.addEventListener("dragover", (e) => {
+            if (draggingCatalogCategory !== type) return;
+            e.preventDefault();
+          });
+          chip.addEventListener("drop", (e) => {
+            if (draggingCatalogCategory !== type || !draggingCatalogItemId || draggingCatalogItemId === item.id) return;
+            e.preventDefault();
+            const fromIndex = catalog[type].findIndex(entry => entry.id === draggingCatalogItemId);
+            const toIndex = catalog[type].findIndex(entry => entry.id === item.id);
+            moveCatalogIngredient(type, fromIndex, toIndex);
+          });
+
+          chip.appendChild(labelBtn);
+          chip.appendChild(deleteBtn);
+          target.appendChild(chip);
+        });
+      };
+
+      renderButtons(meatItems, catalog.meat, "meat");
+      renderButtons(vegItems, catalog.veg, "veg");
+      renderButtons(stapleItems, catalog.staple, "staple");
+      renderButtons(fruitItems, catalog.fruit, "fruit");
+      renderButtons(sideItems, catalog.side, "side");
+    }
+
+    function handleAddIngredient(itemId, type) {
+      const current = getCurrentItems().slice();
+      if (current.includes(itemId)) {
+        updateWeekHint("该食材已在本餐中。");
+        return;
+      }
+      current.push(itemId);
+      setCurrentItems(current);
+      saveState();
+
+      if (type === "meat") {
+        const hint = getWeeklyMeatHint(itemId);
+        const itemLabel = itemLabelMap[itemId] || itemId;
+        let msg = "";
+        if (hint.eatenBefore.length) {
+          msg += `${itemLabel}已在${hint.eatenBefore.join("、")}吃过。`;
+        } else {
+          msg += `${itemLabel}本周此前未出现。`;
+        }
+        msg += hint.notEaten.length
+          ? ` 本周尚未吃过：${hint.notEaten.join("、")}。`
+          : " 本周肉类已全部覆盖。";
+        updateWeekHint(msg);
+      } else {
+        updateWeekHint(`已添加：${itemLabelMap[itemId] || itemId}`);
+      }
+
+      renderAll();
+    }
+
+    function updateWeekHint(text) {
+      document.getElementById("weekHint").textContent = text;
+    }
+
+    function renderAll() {
+      renderView();
+      renderEdit();
+      renderCatalog();
+      document.getElementById("customNameInput").oninput = (e) => {
+        recipeNames[getDateMealKey(selectedDate, selectedMeal)] = e.target.value.trim();
+        saveState();
+        updateRecipePreview(e.target.value.trim());
+        if (viewMode === "day") renderView();
+      };
+    }
+
+    document.getElementById("tabMonth").addEventListener("click", () => { mealSwitchOpen = false; viewMode = "month"; renderAll(); });
+    document.getElementById("tabWeek").addEventListener("click", () => { mealSwitchOpen = false; viewMode = "week"; renderAll(); });
+    document.getElementById("tabDay").addEventListener("click", () => { mealSwitchOpen = false; viewMode = "day"; renderAll(); });
+    document.getElementById("btnBackView").addEventListener("click", () => {
+      if (viewMode === "day") {
+        viewMode = "week";
+      } else if (viewMode === "week") {
+        viewMode = "month";
+      }
+      renderAll();
+    });
+    document.getElementById("currentEditMeal").addEventListener("click", () => {
+      mealSwitchOpen = !mealSwitchOpen;
+      renderAll();
+    });
+
+    document.getElementById("btnSubmitMeat").addEventListener("click", () => {
+      const v = document.getElementById("inputMeat").value;
+      if (addIngredientToCategory("meat", v)) document.getElementById("inputMeat").value = "";
+      saveState();
+      renderAll();
+    });
+    document.getElementById("btnSubmitVeg").addEventListener("click", () => {
+      const v = document.getElementById("inputVeg").value;
+      if (addIngredientToCategory("veg", v)) document.getElementById("inputVeg").value = "";
+      saveState();
+      renderAll();
+    });
+    document.getElementById("btnSubmitStaple").addEventListener("click", () => {
+      const v = document.getElementById("inputStaple").value;
+      if (addIngredientToCategory("staple", v)) document.getElementById("inputStaple").value = "";
+      saveState();
+      renderAll();
+    });
+    document.getElementById("btnSubmitFruit").addEventListener("click", () => {
+      const v = document.getElementById("inputFruit").value;
+      if (addIngredientToCategory("fruit", v)) document.getElementById("inputFruit").value = "";
+      saveState();
+      renderAll();
+    });
+    document.getElementById("btnSubmitSide").addEventListener("click", () => {
+      const v = document.getElementById("inputSide").value;
+      if (addIngredientToCategory("side", v)) document.getElementById("inputSide").value = "";
+      saveState();
+      renderAll();
+    });
+
+    function init() {
+      if (!loadState()) {
+        catalog = defaultCatalog();
+        rebuildLabelMap();
+        buildDefaultMonthData();
+      } else {
+        const cells = getMonthMatrixCells(monthYear, monthNum);
+        cells.forEach(c => ensureDateMeals(c.dateStr));
+      }
+      viewMode = "month";
+      mealSwitchOpen = false;
+      renderAll();
+      updateWeekHint("月视图：点击日期进入该周；周视图：点击日期进入当日。肉类可查看本周提示。");
+    }
+
+    rebuildLabelMap();
+    init();
+  </script>
+</body>
+</html>
